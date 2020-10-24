@@ -57,7 +57,7 @@ export default function EditScreen({ navigation, route }) {
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
-        navigation.navigate('Home')
+        navigation.popToTop()
     }
 
     return (
