@@ -8,13 +8,10 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'stretch',
     },
-    containerjob: {
-        alignItems: 'center'
-    },
     formContainer: {
         flexDirection: 'column',
         height: 80,
-        marginTop: 40,
+        marginTop: 20,
         marginBottom: 20,
         flex: 1,
         paddingTop: 10,
@@ -62,9 +59,5 @@ export default StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
-    },jobListText: {
-        color: 'orange',
-        fontSize: 28,
-        fontFamily: 'sans-serif',
     }
 })

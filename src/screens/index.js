@@ -1,4 +1,5 @@
 export { default as LoginScreen } from './LoginScreen/LoginScreen'
 export { default as HomeScreen } from './HomeScreen/HomeScreen'
 export { default as RegistrationScreen } from './RegistrationScreen/RegistrationScreen'
-export { default as DrawerScreen } from './DrawerScreen/DrawerScreen'
+export { default as JobScreen } from './JobScreen/JobScreen'
+export { default as EditScreen } from './EditScreen/EditScreen'
