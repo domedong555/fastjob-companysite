@@ -7,6 +7,10 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'stretch',
+        borderBottomColor:'white', 
+        borderBottomWidth: 0.8, 
+        marginVertical: 1, 
+        marginTop: 5
     },
     containerjob: {
         alignItems: 'center'
@@ -14,7 +18,7 @@ export default StyleSheet.create({
     formContainer: {
         flexDirection: 'column',
         height: 80,
-        marginTop: 40,
+        marginTop: 20,
         marginBottom: 20,
         flex: 1,
         paddingTop: 10,
@@ -34,10 +38,20 @@ export default StyleSheet.create({
     button: {
         height: 47,
         borderRadius: 5,
-        backgroundColor: '#788eec',
-        width: 80,
+        backgroundColor: '#FFC700',
+        width: '85%',
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 10,
+    },
+    buttonimage: {
+        height: 47,
+        borderRadius: 5,
+        backgroundColor: 'black',
+        width: '85%',
+        alignItems: "center",
+        justifyContent: 'center',
+        marginTop: 10,
     },
     buttonText: {
         color: 'white',
@@ -53,6 +67,16 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
         paddingBottom: 16
     },
+    buttoncss: {
+        height: 40, 
+        marginLeft: 30, 
+        marginRight: 30, 
+        marginTop: 10, 
+        height: 50,
+        borderRadius: 5,
+        padding: 10,
+        backgroundColor: 'white',
+    },
     entityText: {
         fontSize: 20,
         color: '#333333'
@@ -66,5 +90,6 @@ export default StyleSheet.create({
         color: 'orange',
         fontSize: 28,
         fontFamily: 'sans-serif',
+        marginTop: 10,
     }
 })

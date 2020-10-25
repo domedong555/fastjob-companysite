@@ -37,25 +37,25 @@ export default function JobScreen({ navigation, route }) {
     const renderEntity = ({item}) => {
         return (
             <View>
-                <View style={styles.entityButton}>
+                <View style={{ alignItems: 'center'}}>
                     <Image
-                                source={{ uri: item.image }}
-                                style={{ width: 400, height: 200 }}
-                                PlaceholderContent={<ActivityIndicator />}
-                                />
+                        source={{ uri: item.image }}
+                        style={{ width: 350, height: 200 , marginTop: 10, }}
+                        PlaceholderContent={<ActivityIndicator />}
+                    />
                 </View>
                 <View style={styles.formContainer}>
                     <Text>
-                        บริษัท {item.text}
+                        บริษัท: {item.text}
                     </Text>
                     <Text>
-                        งาน {item.job}
+                        ตำแหน่งงาน: {item.job}
                     </Text>
                     <Text>
-                        รายละเอียด {item.description}
+                        รายละเอียด: {item.description}
                     </Text>
                     <Text>
-                        รายได้ {item.Profit}
+                        ค่าจ้าง: {item.Profit}
                     </Text>
                 </View>
             </View>
@@ -78,7 +78,7 @@ export default function JobScreen({ navigation, route }) {
                     </View>
                     
                 )}  
-                <View style={styles.entityButton}>
+                {/* <View style={styles.entityButton}>
                     <TouchableOpacity 
                         onPress={() =>
                             navigation.navigate(
@@ -87,6 +87,19 @@ export default function JobScreen({ navigation, route }) {
                             }>
                         <Text>Edit</Text>
                     </TouchableOpacity>            
+                </View> */}
+                <View style={styles.entityButton}>
+                    <View style={{alignItems: "center"}}>
+                        <TouchableOpacity style={styles.button}onPress={() =>
+                            navigation.navigate(
+                                'Edit',{ userID: user, itemId: itemId }
+                                )
+                            }>
+                            <Text style={styles.buttonText}>
+                                แก้ไขข้อมูล
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>          
         </View>
     )

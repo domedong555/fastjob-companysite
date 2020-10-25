@@ -10,7 +10,7 @@ export default StyleSheet.create({
     },
     formContainer: {
         flexDirection: 'column',
-        height: 80,
+        height: 100,
         marginTop: 20,
         marginBottom: 20,
         flex: 1,
@@ -18,6 +18,26 @@ export default StyleSheet.create({
         paddingBottom: 10,
         paddingLeft: 30,
         paddingRight: 30,
+        backgroundColor: 'white',
+    },
+    buttoncss: {
+        height: 40, 
+        marginLeft: 30, 
+        marginRight: 30, 
+        marginTop: 10, 
+        height: 50,
+        borderRadius: 5,
+        padding: 10,
+        backgroundColor: 'white',
+    },
+    button: {
+        height: 47,
+        borderRadius: 5,
+        backgroundColor: '#FFC700',
+        width: '85%',
+        alignItems: "center",
+        justifyContent: 'center',
+        marginTop: 10,
     },
     input: {
         height: 48,
@@ -27,14 +47,6 @@ export default StyleSheet.create({
         paddingLeft: 16,
         flex: 1,
         marginRight: 5
-    },
-    button: {
-        height: 47,
-        borderRadius: 5,
-        backgroundColor: '#788eec',
-        width: 80,
-        alignItems: "center",
-        justifyContent: 'center'
     },
     buttonText: {
         color: 'white',

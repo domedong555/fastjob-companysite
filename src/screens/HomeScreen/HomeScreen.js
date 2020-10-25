@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Image, ActivityIndicator } from 'react-native'
+import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Image, ActivityIndicator, ScrollView } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/native'
 import Constants from 'expo-constants';
 import { Alert } from 'react-native';
+
 
 export default function HomeScreen(props) {
 
@@ -132,20 +133,21 @@ export default function HomeScreen(props) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.formContainer}>
-                    <Text>
-                        บริษัท {item.text}
+                   <Text>
+                        บริษัท: {item.text}
                     </Text>
                     <Text>
-                        งาน {item.job}
+                        ตำแหน่งงาน: {item.job}
                     </Text>
                     <Text>
-                        รายละเอียด {item.description}
+                        รายละเอียด: {item.description}
                     </Text>
                     <Text>
-                        รายได้ {item.Profit}
+                        ค่าจ้าง: {item.Profit}
                     </Text>
                 </View>
             </View>
+            
         )
     }
 
@@ -169,16 +171,16 @@ export default function HomeScreen(props) {
                 </View>
                 <View style={styles.formContainer}>
                     <Text>
-                        บริษัท {item.text}
+                        บริษัท: {item.text}
                     </Text>
                     <Text>
-                        งาน {item.job}
+                        ตำแหน่งงาน: {item.job}
                     </Text>
                     <Text>
-                        รายละเอียด {item.description}
+                        รายละเอียด: {item.description}
                     </Text>
                     <Text>
-                        รายได้ {item.Profit}
+                        ค่าจ้าง: {item.Profit}
                     </Text>
                 </View>
             </View>
@@ -186,11 +188,14 @@ export default function HomeScreen(props) {
     }
 
     return (
+    <ScrollView>
         <View> 
             {/* <DrawerScreen/> */}
-                <View >
+          
+                <View style={styles.jobListText}>
                     <TextInput
-                        placeholder='Add new entity'
+                        style={styles.buttoncss}
+                        placeholder='ชื่อบริษัท'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityText(text)}
                         value={entityText}
@@ -198,7 +203,8 @@ export default function HomeScreen(props) {
                         autoCapitalize="none"
                     />
                     <TextInput
-                        placeholder='Job'
+                        style={styles.buttoncss}
+                        placeholder='ตำแหน่ง'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityJob(text)}
                         value={entityJob}
@@ -206,7 +212,8 @@ export default function HomeScreen(props) {
                         autoCapitalize="none"
                     />
                     <TextInput
-                        placeholder='Description'
+                        style={styles.buttoncss}
+                        placeholder='รายระเอียด'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityDes(text)}
                         value={entityDes}
@@ -214,21 +221,45 @@ export default function HomeScreen(props) {
                         autoCapitalize="none"
                     />
                     <TextInput
-                        placeholder='Profit'
+                        style={styles.buttoncss}
+                        placeholder='ค่าจ้าง'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityProfit(text)}
                         value={entityProfit}
                         underlineColorAndroid="transparent"
                         autoCapitalize="none"
                     />
-                    <TouchableOpacity onPress={pickImage}>
+                    {/* <TouchableOpacity onPress={pickImage}>
                         <Text style={styles.buttonText}>Select Image</Text>
                         {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={onAddButtonPress}>
-                        <Text style={styles.buttonText}>Add</Text>
-                    </TouchableOpacity>
-                </View>
+                    </TouchableOpacity> */}
+
+                    <View style={styles.entityButton}>
+                            <View style={{alignItems: "center"}}>
+                                <TouchableOpacity style={styles.buttonimage}onPress={pickImage}>
+                                    <Text style={styles.buttonText}>
+                                        เลือกรูปภาพ
+                                    </Text>     
+                                </TouchableOpacity>
+                                    <View>
+                                        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 , marginTop: 10,}} />}
+                                    </View>
+                            </View>
+					    </View>
+
+                    <View style={{borderBottomColor:'white', borderBottomWidth: 0.8, marginVertical:10, marginTop: 10}}></View>
+
+                        <View style={styles.entityButton}>
+                            <View style={{alignItems: "center"}}>
+                                <TouchableOpacity style={styles.button}onPress={onAddButtonPress}>
+                                    <Text style={styles.buttonText}>
+                                        เพิ่ม
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+					    </View>
+                    </View>
+            
                 <View>
                     <Text style={styles.jobListText} >
                         งานที่เปิดสมัคร
@@ -246,7 +277,8 @@ export default function HomeScreen(props) {
                         </View>
                     )}                    
                 </View>
-
+                            
         </View>
+        </ScrollView>
     )
 }

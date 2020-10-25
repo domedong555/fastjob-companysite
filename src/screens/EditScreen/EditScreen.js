@@ -49,6 +49,7 @@ export default function EditScreen({ navigation, route }) {
             Profit: entityProfit,
             createdAt: timestamp,
         });
+        navigation.goBack()
     }
 
     const onDeleteButtonPress = () => {
@@ -64,7 +65,8 @@ export default function EditScreen({ navigation, route }) {
         <View>
             <View >
                     <TextInput
-                        placeholder='Add new entity'
+                        style={styles.buttoncss}
+                        placeholder='ชื่อบริษัท'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityText(text)}
                         value={entityText}
@@ -72,7 +74,8 @@ export default function EditScreen({ navigation, route }) {
                         autoCapitalize="none"
                     />
                     <TextInput
-                        placeholder='Job'
+                        style={styles.buttoncss}
+                        placeholder='ตำแหน่ง'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityJob(text)}
                         value={entityJob}
@@ -80,7 +83,8 @@ export default function EditScreen({ navigation, route }) {
                         autoCapitalize="none"
                     />
                     <TextInput
-                        placeholder='Description'
+                        style={styles.buttoncss}
+                        placeholder='รายระเอียด'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityDes(text)}
                         value={entityDes}
@@ -88,14 +92,15 @@ export default function EditScreen({ navigation, route }) {
                         autoCapitalize="none"
                     />
                     <TextInput
-                        placeholder='Profit'
+                        style={styles.buttoncss}
+                        placeholder='ค่าจ้าง'
                         placeholderTextColor="#aaaaaa"
                         onChangeText={(text) => setEntityProfit(text)}
                         value={entityProfit}
                         underlineColorAndroid="transparent"
                         autoCapitalize="none"
                     />
-                    <TouchableOpacity onPress={pickImage}>
+                    {/* <TouchableOpacity onPress={pickImage}>
                         <Text style={styles.buttonText}>Select Image</Text>
                         {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
                     </TouchableOpacity>
@@ -104,8 +109,41 @@ export default function EditScreen({ navigation, route }) {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={onDeleteButtonPress}>
                         <Text>Delete</Text>
-                    </TouchableOpacity>
-                </View>
+                    </TouchableOpacity> */}
+                    <View style={styles.entityButton}>
+                        <View style={{alignItems: "center"}}>
+                            <TouchableOpacity style={styles.buttonimage}onPress={pickImage}>
+                                <Text style={styles.buttonText}>
+                                    เลือกรูปภาพ
+                                </Text>     
+                            </TouchableOpacity>
+                                <View>
+                                    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 , marginTop: 10,}} />}
+                                </View>
+                        </View>
+					</View>
+
+                    <View style={{borderBottomColor:'white', borderBottomWidth: 0.8, marginVertical:10, marginTop: 10}}></View>
+
+                                    <View style={styles.entityButton}>
+                                        <View style={{alignItems: "center"}}>
+                                            <TouchableOpacity style={styles.button}onPress={onAddButtonPress}>
+                                                <Text style={styles.buttonText}>
+                                                    แก้ไขเสร็จสิ้น
+                                                </Text>
+                                            </TouchableOpacity>
+                                        </View>  
+
+                                        <View style={{alignItems: "center"}}>
+                                            <TouchableOpacity style={styles.buttondelete}onPress={onDeleteButtonPress}>
+                                                <Text style={styles.buttonText}>
+                                                    ลบทิ้ง
+                                                </Text>
+                                            </TouchableOpacity>
+                                        </View> 
+                                    </View>                
+            </View>
         </View>
+        
     )
 }
